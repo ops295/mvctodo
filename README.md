@@ -19,8 +19,7 @@ todo-app/
 ├── public/                 # Public assets and HTML template
 │   └── index.html
 ├── src/                    # Source code
-│   ├── components/         # React components
-│   │   ├── App.tsx         # Root component
+│   ├── components/         # React components      # Root component
 │   │   ├── Footer.tsx      # Footer component
 │   │   ├── TodoItem.tsx    # TodoItem component
 │   │   ├── TodoInput.tsx   # TodoInput component
@@ -28,7 +27,9 @@ todo-app/
 │   ├── store/              # Redux store setup
 │   │   ├── actions.ts      # Action creators
 │   │   ├── reducers.ts     # Root reducer and combineReducers
-│   │   └── types.ts        # Types and constants
+│   │   └── types.ts 
+    ├── App.tsx
+    ├── Main.tsx                # Types and constants
 │   └── index.tsx           # Application entry point
 ├── .gitignore              # Git ignore file
 ├── package.json            # NPM package file

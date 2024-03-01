@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import undoable, {StateWithHistory } from 'redux-undo';
-import { Todo, TodoAction, ADD_TODO, TOGGLE_TODO, DELETE_TODO, CLEAR_COMPLETED } from './types';
+import { Todo, TodoAction, ADD_TODO, TOGGLE_TODO, DELETE_TODO, CLEAR_COMPLETED , TOGGLE_COMPLETE_ALL } from './types';
 
 // Define RootState
 export type RootState = { todos: StateWithHistory<Todo[]>};
@@ -19,6 +19,8 @@ const todosReducer = (state: Todo[] = [], action: TodoAction): Todo[] => {
             return state.filter(todo => todo.id !== action.payload);
         case CLEAR_COMPLETED:
             return state.filter(todo => !todo.completed);
+        case TOGGLE_COMPLETE_ALL:
+            return  state.map(todo => ({...todo , completed:action.payload}))
         default:
             return state;
     }

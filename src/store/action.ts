@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, DELETE_TODO, CLEAR_COMPLETED } from './types';
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO, CLEAR_COMPLETED, TOGGLE_COMPLETE_ALL } from './types';
 
 export const addTodo = (title: string) => ({
     type: ADD_TODO,
@@ -21,4 +21,9 @@ export const deleteTodo = (id: string) => ({
 
 export const clearCompleted = () => ({
     type: CLEAR_COMPLETED
+});
+
+export const selectAll = (checked:boolean) => ({
+    type: TOGGLE_COMPLETE_ALL,
+    payload:checked
 });

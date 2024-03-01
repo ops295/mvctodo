@@ -10,14 +10,17 @@ const Footer: React.FC = () => {
     const handleClearCompleted = () => {
         dispatch(clearCompleted());
     };
+    
 
     const activeCount = todos?.filter(todo => !todo.completed).length;
 
+    if(todos.length === 0) return null;
+
     return (
-        <footer className="flex justify-between items-center">
-            <span>{activeCount} {activeCount === 1 ? 'item' : 'items'} left</span>
+        <footer className="px-3 py-3 flex justify-between items-center bg-slate-300 rounded">
+            <span className=''>{activeCount} {activeCount === 1 ? 'item' : 'items'} left</span>
             {todos?.some(todo => todo.completed) && (
-                <button onClick={handleClearCompleted}>Clear completed</button>
+                <button  onClick={handleClearCompleted}>Clear completed</button>
             )}
         </footer>
     );

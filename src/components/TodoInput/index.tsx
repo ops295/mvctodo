@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTodo } from '../../store/action';
 
 const TodoInput: React.FC = () => {
     const [inputValue, setInputValue] = useState('');
     const [error, setError] = useState('');
+    const inputRef = useRef<HTMLInputElement | null>(null)
     const dispatch = useDispatch();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,17 +25,26 @@ const TodoInput: React.FC = () => {
         }
     };
 
-    return (
-        <form onSubmit={handleSubmit}>
+    useEffect(() => {
+        if (inputRef.current) {
+            inputRef.current.focus();
+        }
+    }, [])
+
+    return (<>
+        <form onSubmit={handleSubmit} className='shadow bg-white rounded w-full mb-4'>
             <input
+                ref={inputRef}
                 type="text"
                 placeholder="What needs to be done?"
-                autoFocus
+                // autoFocus
                 value={inputValue}
                 onChange={handleChange}
+                className='w-full h-full px-3 py-2 rounded border-slate-600 focus:ring-2 focus:ring-slate-400 outline-none font-lg'
             />
-            {error && <p className="error">{error}</p>}
         </form>
+        {error && <p className="error bg-red-100 border-reg-600 text-red-600 font-bold text-sm px-3 py-2 mb-4 block rounded">{error}</p>}
+    </>
     );
 };
 
