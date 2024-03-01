@@ -10,13 +10,13 @@ import {
 	TOGGLE_COMPLETE_ALL,
 	EDIT_TODO,
 } from "./types";
+import { getTodos } from "../utils/localstorage";
 
 // Define RootState
 export type RootState = {todos: StateWithHistory<Todo[]>};
 
 // Define regular todosReducer
-const todosReducer = (state: Todo[] = [], action: TodoAction): Todo[] => {
-	console.log("I am in action", action);
+const todosReducer = (state: Todo[] = getTodos(), action: TodoAction): Todo[] => {
 	switch (action.type) {
 		case ADD_TODO:
 			return [...state, action.payload];

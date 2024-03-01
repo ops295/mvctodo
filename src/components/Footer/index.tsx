@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
 
     return (
         <footer className="px-3 py-3 flex justify-between items-center bg-slate-300 rounded">
-            <span className=''>{activeCount} {activeCount === 1 ? 'item' : 'items'} left</span>
+           {activeCount > 0  ? <span className=''>{activeCount} {activeCount === 1 ? 'item' : 'items'} left</span> : <span>All completed</span>}
             {todos?.some(todo => todo.completed) && (
                 <button  onClick={handleClearCompleted}>Clear completed</button>
             )}
