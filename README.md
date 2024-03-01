@@ -1,30 +1,59 @@
-# React + TypeScript + Vite
+# Todo App
+This is a simple todo list application built using React, Redux, and TypeScript. The app allows users to add, toggle, delete, and clear todos. It also supports undo/redo functionality, keyboard accessibility, error handling, data validation, and custom filters.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+- **Add Todo:** Users can add new todos using the input field at the top of the app. Pressing Enter creates the todo.
+- **Toggle Todo:** Users can mark todos as complete by clicking the checkbox next to the todo item.
+- **Delete Todo:** Users can delete a todo by clicking the delete button next to the todo item.
+- **Clear Completed:** Users can clear all completed todos by clicking the "Clear completed" button.
+- **Undo/Redo:** Undo and redo functionality is available to revert or reapply todo actions.
+- **Keyboard Accessibility:** Keyboard shortcuts are provided for adding todos (Enter key) and toggling completion (Enter key). Deleting todos is also supported using the Delete key.
+- **Error Handling:** Error handling is implemented to handle cases such as failing to save/load data from localStorage.
+- **Data Validation:** Data validation ensures that todo titles are not empty or contain only whitespace characters.
 
-Currently, two official plugins are available:
+## Project Structure
+The project structure is organized as follows:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+todo-app/
+├── public/                 # Public assets and HTML template
+│   └── index.html
+├── src/                    # Source code
+│   ├── components/         # React components
+│   │   ├── App.tsx         # Root component
+│   │   ├── Footer.tsx      # Footer component
+│   │   ├── TodoItem.tsx    # TodoItem component
+│   │   ├── TodoInput.tsx   # TodoInput component
+│   │   └── TodoList.tsx    # TodoList component
+│   ├── store/              # Redux store setup
+│   │   ├── actions.ts      # Action creators
+│   │   ├── reducers.ts     # Root reducer and combineReducers
+│   │   └── types.ts        # Types and constants
+│   └── index.tsx           # Application entry point
+├── .gitignore              # Git ignore file
+├── package.json            # NPM package file
+├── README.md               # Project documentation (you are here)
+└── tsconfig.json           # TypeScript configuration
 ```
+## Getting Started
+1. Clone the repository:
+ ```bash
+  git clone https://github.com/ops295/mvctodo.git
+```
+2. Install dependencies:
+ ```bash
+ cd mvctodo
+ npm install
+ ```
+3. Run the app:
+```bash
+npm start
+```
+4. Open the app:
+Visit http://localhost:5173 in your web browser to view the todo app. Or you can change the port by configuring in `vite.config.js`.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+###  Contributing
+Contributions are welcome! Feel free to submit pull requests or open issues for any bugs or feature requests.
+
+#### License
+This project is licensed under the MIT License - see the LICENSE file for details.
