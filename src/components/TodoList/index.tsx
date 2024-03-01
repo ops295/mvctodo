@@ -1,18 +1,31 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/reducers';
-import TodoItem from '../TodoItem';
-import NoTodoAlert from '../NoTodoAlert';
 import ListHeader from '../ListHeader';
+import NoTodoAlert from '../NoTodoAlert';
+import TodoItem from '../TodoItem';
 
-const TodoList: React.FC = () => {
-    const todos = useSelector((state: RootState) => state.todos.present);
+interface TodoListProps {
+    variants?: "active" | "completed"
+}
 
-    if(todos.length === 0) return <NoTodoAlert />
+const TodoList = (props: TodoListProps) => {
+    const todos = useSelector((state: RootState) => {
+    const _td = state.todos.present;
+        switch (props?.variants) {
+            case "active":
+                return _td.filter(td => !td.completed)
+            case  "completed":
+                return _td.filter(td => td.completed)
+            default:
+                return _td
+        }
+    });
+
+    if (todos.length === 0) return <NoTodoAlert />
 
     return (
         <ul className='bg-gray-100 rounded mb-4 ps-0 overflow-hidden'>
-            <ListHeader />
+            {!props.variants && <ListHeader /> }
             {todos.map(todo => (
                 <TodoItem key={todo.id} todo={todo} />
             ))}
