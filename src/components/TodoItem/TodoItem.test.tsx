@@ -30,6 +30,6 @@ describe('TodoItem Component', () => {
   //   const deleteButton = getByText('×');
   //   userEvent.click(deleteButton);
   //   expect(queryByText(todo.title)).not.toBeInTheDocument()
-  });
+  // });
 
 });
