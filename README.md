@@ -16,25 +16,72 @@ The project structure is organized as follows:
 
 ```bash
 todo-app/
-├── public/                 # Public assets and HTML template
-│   └── index.html
-├── src/                    # Source code
-│   ├── components/         # React components      # Root component
-│   │   ├── Footer.tsx      # Footer component
-│   │   ├── TodoItem.tsx    # TodoItem component
-│   │   ├── TodoInput.tsx   # TodoInput component
-│   │   └── TodoList.tsx    # TodoList component
-│   ├── store/              # Redux store setup
-│   │   ├── actions.ts      # Action creators
-│   │   ├── reducers.ts     # Root reducer and combineReducers
-│   │   └── types.ts 
-    ├── App.tsx
-    ├── Main.tsx                # Types and constants
-│   └── index.tsx           # Application entry point
-├── .gitignore              # Git ignore file
-├── package.json            # NPM package file
-├── README.md               # Project documentation (you are here)
-└── tsconfig.json           # TypeScript configuration
+│   .eslintrc.cjs
+│   .gitignore
+│   directory-structure.md
+│   index.html
+│   package-lock.json
+│   package.json
+│   postcss.config.js
+│   README.md
+│   tailwind.config.js
+│   tsconfig.json
+│   tsconfig.node.json
+│   vite.config.ts
+│
+├───public
+│       vite.svg
+│
+└───src
+    ├───App.tsx
+    ├───index.css
+    ├───main.tsx
+    ├───setupTests.ts
+    ├───vite-env.d.ts
+    │
+    ├───assets
+    │   ├───react.svg
+    │
+    ├───components
+    │   ├───index.ts
+    │   │
+    │   ├───Footer
+    │   │   ├───Footer.test.tsx
+    │   │   ├───index.tsx
+    │   │
+    │   ├───ListHeader
+    │   │   ├───index.tsx
+    │   │
+    │   ├───NoTodoAlert
+    │   │   ├───index.tsx
+    │   │
+    │   ├───TodoInput
+    │   │   ├───index.tsx
+    │   │
+    │   ├───TodoItem
+    │   │   ├───index.tsx
+    │   │   ├───TodoItem.test.tsx
+    │   │
+    │   └───TodoList
+    │       ├───index.tsx
+    │       ├───TodoList.test.tsx
+    │
+    ├───pages
+    │   ├───Active.tsx
+    │   ├───All.tsx
+    │   ├───Completed.tsx
+    │
+    ├───store
+    │   ├───action.test.ts
+    │   ├─── action.ts
+    │   ├───reducer.test.ts
+    │   ├───reducers.ts
+    │   ├───store.ts
+    │   ├───types.ts
+    │
+    └───utils
+        ├───localstorage.ts
+        ├───test-utils.tsx         # TypeScript configuration
 ```
 ## Getting Started
 1. Clone the repository:

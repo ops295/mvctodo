@@ -1,7 +1,6 @@
 import { describe, expect, test } from "vitest";
 import TodoItem from ".";
 import renderWithProvider from "../../utils/test-utils";
-import userEvent from '@testing-library/user-event'
 
 
 describe('TodoItem Component', () => {
