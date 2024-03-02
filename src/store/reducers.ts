@@ -1,22 +1,21 @@
-import {combineReducers} from "redux";
-import undoable, {StateWithHistory} from "redux-undo";
+import { combineReducers } from "redux";
+import undoable, { StateWithHistory } from "redux-undo";
 import {
+	ADD_TODO,
+	CLEAR_COMPLETED,
+	DELETE_TODO,
+	EDIT_TODO,
+	TOGGLE_COMPLETE_ALL,
+	TOGGLE_TODO,
 	Todo,
 	TodoAction,
-	ADD_TODO,
-	TOGGLE_TODO,
-	DELETE_TODO,
-	CLEAR_COMPLETED,
-	TOGGLE_COMPLETE_ALL,
-	EDIT_TODO,
 } from "./types";
-import { getTodos } from "../utils/localstorage";
 
 // Define RootState
 export type RootState = {todos: StateWithHistory<Todo[]>};
 
 // Define regular todosReducer
-const todosReducer = (state: Todo[] = getTodos(), action: TodoAction): Todo[] => {
+const todosReducer = (state: Todo[] = [], action: TodoAction): Todo[] => {
 	switch (action.type) {
 		case ADD_TODO:
 			return [...state, action.payload];
@@ -52,5 +51,6 @@ const undoableTodosReducer = undoable(todosReducer, {
 const rootReducer = combineReducers({
 	todos: undoableTodosReducer,
 });
+
 
 export default rootReducer;

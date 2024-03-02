@@ -1,19 +1,12 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 import { Link, Outlet, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import ActivePage from './pages/Active';
 import AllPage from './pages/All';
 import CompletedPage from './pages/Completed';
-import { RootState } from './store/reducers';
-import { saveTodos } from './utils/localstorage';
 
 
 
 const AppLLayout: React.FC = () => {
-    const todos = useSelector((state: RootState) => state.todos.present);
-    useEffect(() => {
-        saveTodos(todos)
-    }, [todos])
     return (
         <div className="max-w-lg mx-auto max-h-screen py-8 px-3 bg-gray-200  dark:bg-gray-600">
             <h1 className="text-3xl font-bold text-center mb-4 ">Todo App</h1>

@@ -7,10 +7,10 @@ import {
 	EDIT_TODO,
 } from "./types";
 
-export const addTodo = (title: string) => ({
+export const addTodo = (title: string, id?:number|string) => ({
 	type: ADD_TODO,
 	payload: {
-		id: Math.random().toString(36).substr(2, 9),
+		id: id??Math.random().toString(36).substr(2, 9),
 		title,
 		completed: false,
 	},
